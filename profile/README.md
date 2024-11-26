@@ -22,7 +22,7 @@ Ce projet est un modèle de serveur Node.js utilisant Express, conçu pour gére
 
 1. Clonez le projet avec les sous-modules :
    ```bash
-   git clone --recurse-submodules https://github.com/votre-repo/template-project.git
+   git clone --recurse-submodules git@github.com:my-monkeys/templates.git
    ```
 
 2. Installez les dépendances :

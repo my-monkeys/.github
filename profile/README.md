@@ -9,9 +9,12 @@ Ce projet est un modèle de serveur Node.js utilisant Express, conçu pour gére
 - Structure modulaire pour sous-domaines.
 - ORM Sequelize avec modules disponibles sur [my-monkeys/models](https://github.com/my-monkeys/models).
 - Middleware pour les logs et les ID de requête.
-- Gestion des fichiers statiques via le dossier `public`.
-- Routes dynamiques définies dans `src/app.js`.
+- Gestion des modules statiques & dynamiques.
+  
 
+<br>
+
+# Pour les modules dynamiques
 ## Prérequis
 
 - Node.js v14 ou supérieur.
@@ -20,27 +23,31 @@ Ce projet est un modèle de serveur Node.js utilisant Express, conçu pour gére
 
 ## Installation
 
-1. Clonez le projet avec les sous-modules :
+1. Créez un nouveau repository sur github avec pour template le repository `my-monkeys/templates`.\
+   Attention : le nom du repository sera le nom du module (sous-domaine).
+
+2. Clonez le projet avec les sous-modules :
    ```bash
-   git clone --recurse-submodules git@github.com:my-monkeys/templates.git
+   git clone --recurse-submodules git@github.com:my-monkeys/<module>.git
    ```
 
-2. Installez les dépendances :
+3. Installez les dépendances :
    ```bash
    npm install
    ```
 
-3. Configurez les variables d'environnement dans un fichier `.env` (exemple : connexion DB, port, etc.).
+4. Configurez les variables d'environnement dans un fichier `.env` (exemple : connexion DB, port, etc.).
 
-4. Lancer le serveur :
+5. Lancer le serveur :
    ```bash
    npm start
    ```
 
-## Structure du projet
+## Structure du projet 
 
 ```
 .
+├── .dynamic           # Fichier pour définir le module comme dynamique (⚠️ ne pas supprimer ⚠️).
 ├── package.json
 ├── server.js
 ├── public/               # Fichiers statiques (HTML, CSS, JS, images)
@@ -87,6 +94,13 @@ DB_DATABASE=my-monkey
 
 - Cette convention garantit que les variables spécifiques aux modules seront prises en compte en production.
 
+### Domaines personnalisés
+
+- Il est possible de définir un/des domaine(s) personnalisé(s) pour le module pour cela ajouter :  
+  ```env
+  <MODULE_NAME>_DOMAIN=test.com,test2.com # Chaque domaine doit être séparé par une virgule
+  ```
+
 
 ### Scripts disponibles
 - `npm start` : Démarre le serveur avec `nodemon`.
@@ -96,6 +110,26 @@ DB_DATABASE=my-monkey
 - [Express.js Documentation](https://expressjs.com/)
 - [Sequelize Documentation](https://sequelize.org/)
 - [Guide Submodules Git](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
+
+<br>
+
+# Pour les modules statiques
+## Prérequis
+
+- savoir utiliser `git`
+- savoir coder en `html`, `css`, `js`
+
+## Installation
+
+1. Créez un nouveau repository sur github\
+   Attention : le nom du repository sera le nom du module (sous-domaine).
+
+2. Clonez le projet avec les sous-modules :
+   ```bash
+   git clone git@github.com:my-monkeys/<module>.git
+   ```
+3. Définissez le comme module statique \
+   Pour cela, ajouter le fichier `.static` à la racine du projet.
 
 ## Auteur
 
